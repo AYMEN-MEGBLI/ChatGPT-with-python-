@@ -1,7 +1,10 @@
 import openai
 import time
+from colorama import init, Fore
+init()
+#initialize module colorama
 # Define OpenAI API key (https://beta.openai.com/account/api-keys)
-openai.api_key = "your api key"
+openai.api_key = "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"
 # Set up the model and prompt
 model_engine = "text-davinci-003"
 while 1 :
@@ -24,15 +27,15 @@ while 1 :
     print("The time used to execute this is given below  [",end - start,']')
     valid=False
     while not valid:
-        condition=str(input('press [A] for another question | [S] saving response in external file | [L] Leaving  :   ')).upper()
+        condition=str(input('press ['+Fore.RED+'A'+Fore.WHITE+'] for another question | ['+Fore.RED+'S'+Fore.WHITE+'] saving response in external file | ['+Fore.RED+'L'+Fore.WHITE+'] Leaving  :   ')).upper()
         valid=condition in ['A','S','L']
     if condition=='S' :
         with open (prompt+".txt",'w') as f:
             f.write("-----------chatgpt-----------\n-question  :"+prompt+"\n-reponse  :"+reponse+"\n[BY Megbli Aymen]")
-        print("file is maked")
+        print(Fore.YELLOW,"file is maked",Fore.WHITE)
         valid = False
         while not valid:
-            condition = str(input('press [A] for another question | [L] Leaving  :   ')).upper()
+            condition = str(input('press ['+Fore.RED+'A'+Fore.WHITE+'] for another question | ['+Fore.RED+'L'+Fore.WHITE+'] Leaving  :   ')).upper()
             valid = condition in ['A','L']
     if condition=="L" :
         break
