@@ -4,7 +4,7 @@ from colorama import init, Fore
 init()
 #initialize module colorama
 # Define OpenAI API key (https://beta.openai.com/account/api-keys)
-openai.api_key = "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"
+openai.api_key = "YOUR API"
 # Set up the model and prompt
 model_engine = "text-davinci-003"
 while 1 :
